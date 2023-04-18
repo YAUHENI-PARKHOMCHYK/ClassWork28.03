@@ -43,13 +43,22 @@ public class Account {
 
         return balance;
     }
+    // перевод денег со счета на счет
+    // кредитуем свой счет и дебитуем account
+    // возвращается баланс счета
+    // при попытке снять больше чем есть на счете нужно печатать сообщение
+    public int transfer(Account account, int amount)
+    {
+        // кредитуем наш счет (снимаем с него amount денег)
+        // дебитуем счет account на количество реально снятых денег
 
-    public int transfer(Account account, int amount){
-        if(account.balance < amount){
-            System.out.println("Сумма перевода больше баланса");
-        }else{
-            account.balance -= amount;
-        }
-        return account.balance;
+        // сколько было - сколько стало
+        int amountDebited = (balance - credit(amount));
+        account.debit(amountDebited);
+
+        return balance;
     }
+
+
+
 }

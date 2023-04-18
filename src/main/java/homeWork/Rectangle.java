@@ -1,27 +1,37 @@
 package homeWork;
 
 public class Rectangle {
-    int pointSe;
-    int pointNw;
+    private Point se;
+    private Point nw;
 
-    public Rectangle(int pointSe, int pointNw) {
-        this.pointSe = pointSe;
-        this.pointNw = pointNw;
+    public Rectangle(Point se, Point nw) {
+        this.se = se;
+        this.nw = nw;
     }
 
-    public int getPointSe() {
-        return pointSe;
+    public Point se() {
+        return se;
     }
 
-    public void setPointSe(int pointSe) {
-        this.pointSe = pointSe;
+    public void setPointSe(Point se) {
+        this.se = se;
     }
 
-    public int getPointNw() {
-        return pointNw;
+    public Point nw() {
+        return nw;
     }
 
-    public void setPointNw(int pointNw) {
-        this.pointNw = pointNw;
+    public void nw(Point nw) {
+        this.nw = nw;
     }
+
+
+        int area()
+        {
+            int sizeX = se.getX() - nw.getX();
+            int sizeY = se.getY() - nw.getY();
+            return sizeY*sizeX;
+        }
+
+
 }

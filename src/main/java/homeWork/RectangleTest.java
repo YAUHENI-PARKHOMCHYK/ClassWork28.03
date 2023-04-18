@@ -2,6 +2,12 @@ package homeWork;
 
 public class RectangleTest {
     public static void main(String[] args) {
-        Point pointSe = new Point(6,9);
+        Point p1 = new Point(10, 5);
+        Point p2 = new Point(1, 12);
+
+        Rectangle r = new Rectangle(p1, p2);
+
+        System.out.println(r.area());
+
     }
 }

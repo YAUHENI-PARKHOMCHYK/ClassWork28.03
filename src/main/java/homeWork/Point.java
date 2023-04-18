@@ -1,27 +1,27 @@
 package homeWork;
 
 public class Point {
-    int dottX;
-    int dottY;
+     private int X;
+     private int Y;
 
-    public Point(int dottX, int dottY) {
-        this.dottX = dottX;
-        this.dottY = dottY;
+    public Point(int X, int Y) {
+        this.X = X;
+        this.Y = Y;
     }
 
-    public int getDottX() {
-        return dottX;
+    public int getX() {
+        return X;
     }
 
-    public void setDottX(int dottX) {
-        this.dottX = dottX;
+    public void setX(int X) {
+        this.X = X;
     }
 
-    public int getDottY() {
-        return dottY;
+    public int getY() {
+        return Y;
     }
 
-    public void setDottY(int dottY) {
-        this.dottY = dottY;
+    public void setY(int Y) {
+        this.Y = Y;
     }
 }
