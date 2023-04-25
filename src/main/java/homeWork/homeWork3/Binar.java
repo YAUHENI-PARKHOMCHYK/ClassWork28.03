@@ -8,21 +8,36 @@ public class Binar {
 
         int[] binar = new int[]{-5, 1, 2, 5, 7, 8, 9, 12, 14};
         Scanner scanner = new Scanner(System.in);
-        int find = scanner.nextInt();
-        int index = binar.length/2;
+        System.out.print("Введите число которое хотите найти: ");
+        int search = scanner.nextInt();
 
-        for (int i = 0; i < binar.length; i++) {
+        int maxIndex = binar.length;
+        int minIndex = 0;
+        int result = 0;
 
-        if(find > binar[index]){
-            index = index + index/2;
-        }if(find < binar[index]){
-            index = index - index/2;
-            }else{
-                System.out.println("Число которое вы искали под индексом: " + index);
+            while (minIndex <= maxIndex){
+
+                int middleIndex = (minIndex + maxIndex)/2;
+
+
+        if(search == binar[middleIndex]){
+            result = middleIndex;
+            System.out.println("Число которое вы искали под индексом: " + result);
+            break;
+        }else if(binar[middleIndex]<search){
+            minIndex += middleIndex + 1;
+
+        }
+        else if(binar[middleIndex]>search){
+            maxIndex -= middleIndex - 1;
             }
+
+
+        }
 
 
 
         }
+
     }
-}
+
