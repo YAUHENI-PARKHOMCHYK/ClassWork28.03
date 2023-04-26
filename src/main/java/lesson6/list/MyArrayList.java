@@ -1,6 +1,30 @@
 package lesson6.list;
 
-public class MyArrayList implements MyList{
+import java.util.Iterator;
+
+public class MyArrayList implements MyList, Iterable<Integer> {
+
+    public Iterator<Integer> iterator()
+    {
+        // реализация итератора через анонимный внутренний класс
+        return new Iterator<Integer>() {
+            // позиция по-умолчанию
+            private int position = -1;
+            @Override
+            public boolean hasNext() {
+                return ++position < size;
+            }
+
+            @Override
+            public Integer next() {
+                return get(position);
+            }
+            public void remove(){
+                MyArrayList.this.remove(position--);
+            }
+        };
+    }
+
 
     private static final int INITIAL_SIZE = 8; // начальная емкость контейнера
     private int size = 0; // длинна контейнера
@@ -76,12 +100,16 @@ public class MyArrayList implements MyList{
             increaseCapacity();
         }
 
-        for( int i = index; size>i; size--){
-
-            data[size]=data[size-1];
+        for(int i = size - 1; i >= index; i--)
+        {
+            data[i+1] = data[i];
         }
-        data[index]=value;
+        data[index] = value;
+        size++;
     }
+
+
+
 
     @Override
     public void remove(int index) {
@@ -92,4 +120,18 @@ public class MyArrayList implements MyList{
         }
         size--;
     }
+    @Override
+    public String toString() {
+        StringBuilder b = new StringBuilder("[");
+        for(int i = 0; i < size; i++)
+        {
+            if(i != 0)
+                b.append(", ");
+            b.append(data[i]);
+        }
+        b.append("]");
+        return b.toString();
+    }
+
 }
+
