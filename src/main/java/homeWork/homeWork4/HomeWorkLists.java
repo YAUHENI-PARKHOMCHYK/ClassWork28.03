@@ -35,8 +35,7 @@ public class HomeWorkLists {
             return l;
         }
 
-        // Напишите функцию, меняющую порядок следования элементов
-        // передаваемого в нее списка на противоположный
+
         public static List<String> reverse(List<String> l){
             for(int i = 0; i < l.size() / 2; i++)
             {
